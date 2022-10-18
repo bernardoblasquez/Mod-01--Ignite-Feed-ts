@@ -2,12 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 )
-
+/*
+  O ponto de "!" após "document.getElementById('root')" é somente para dizer 
+  que "root" pode ou não existir - em typescript
+ */
 /*
   O pacote react é responsável pelo coração (core) do react. Tem todas as 
   funcionalidades que são compartilhadas por todas essas interfaces/ambientes/clientes
