@@ -17,14 +17,14 @@ const posts = [
   {
     id: 1,
     author: { 
-      avatarUrl: 'https://avatars.githubusercontent.com/u/4926167?v=4',
+      avatarURL: 'https://avatars.githubusercontent.com/u/4926167?v=4',
       name: 'Bernardo Blasquez',
       role: 'Front-end Developer'
     }, 
     content: [
-      {type: 'paragrath', content: 'Fala pessoal'},
-      {type: 'paragrath', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui'},
-      {type: 'paragrath', content: 'Acesse e deixe seu feedback'},    
+      {type: 'paragraph', content: 'Fala pessoal'},
+      {type: 'paragraph', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui'},
+      {type: 'paragraph', content: 'Acesse e deixe seu feedback'},    
       {type: 'link', content: 'devonlane.design'}  
     ],
     publishedAt: new Date('2022-08-26 20:00:00')
@@ -33,14 +33,14 @@ const posts = [
   {
     id: 2,
     author: { 
-      avatarUrl: 'https://avatars.githubusercontent.com/u/44641613?v=4',
+      avatarURL: 'https://avatars.githubusercontent.com/u/44641613?v=4',
       name: 'Ademario Santana',
       role: 'Mobile Developer'
     }, 
     content: [
-      {type: 'paragrath', content: 'Fala pessoal'},
-      {type: 'paragrath', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui'},
-      {type: 'paragrath', content: 'Acesse e deixe seu feedback'},    
+      {type: 'paragraph', content: 'Fala pessoal'},
+      {type: 'paragraph', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui'},
+      {type: 'paragraph', content: 'Acesse e deixe seu feedback'},    
       {type: 'link', content: 'devonlane.design'}  
     ],
     publishedAt: new Date('2022-08-29 23:17:00')
@@ -48,14 +48,14 @@ const posts = [
   {
     id: 3,
     author: { 
-      avatarUrl: 'https://avatars.githubusercontent.com/u/28743763?v=4',
+      avatarURL: 'https://avatars.githubusercontent.com/u/28743763?v=4',
       name: 'Manoel Ribeiro',
       role: 'Full Stack Developer'
     }, 
     content: [
-      {type: 'paragrath', content: 'Fala pessoal'},
-      {type: 'paragrath', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui'},
-      {type: 'paragrath', content: 'Acesse e deixe seu feedback'},    
+      {type: 'paragraph', content: 'Fala pessoal'},
+      {type: 'paragraph', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui'},
+      {type: 'paragraph', content: 'Acesse e deixe seu feedback'},    
       {type: 'link', content: 'devonlane.design'}  
     ],
     publishedAt: new Date('2022-08-25 21:00:00')
