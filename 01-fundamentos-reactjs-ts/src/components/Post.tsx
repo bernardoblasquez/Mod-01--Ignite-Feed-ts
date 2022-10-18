@@ -1,20 +1,29 @@
 import { format, formatDistanceToNow} from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
-import { useState } from 'react'
+import { FormEvent, useState, ChangeEvent, InvalidEvent } from 'react'
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 import styles from './Post.module.css'
 
-export function Post({author, content, publishedAt}) {
-   /* DATE FNS JS
-      const options = { 
-            day:'2-digit',
-            month:'long',
-            hour: '2-digit', minute: '2-digit'
-      };
-      const publishedFormattedDate = Intl.DateTimeFormat('pt-BR', options).format(publishedAt);
-   */
-  // Date FNS package
+
+interface Author {
+   name: string;
+   role: string;
+   avatarURL: string;
+}
+
+interface Content{
+   type: string;
+   content: string;
+}
+interface PostProps {
+   author: Author;
+   publishedAt: Date;
+   content: Content[];
+}
+
+export function Post({author, content, publishedAt}: PostProps) {
+   
    const publishedFormattedDate = format(publishedAt, "dd 'de' LLLL 'às' H:mm'h'",{
       locale:ptBR
    })
@@ -24,33 +33,33 @@ export function Post({author, content, publishedAt}) {
       addSuffix: true
    })
 
-   const [newCommentText, setNewCommentsText] = useState([''])
+   const [newCommentText, setNewCommentsText] = useState('')
 
    const [comments, setComments] = useState([
       'Comentário '   
    ])
 
-   const handleCreateNewComments = () => {
+   const handleCreateNewComments = (event: FormEvent) => {
       event.preventDefault();
       setComments([...comments, newCommentText]);
       setNewCommentsText('')
 
    }
 
-   const handleNewCommentChange = () => {
+   const handleNewCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
       event.target.setCustomValidity('')
       setNewCommentsText(event.target.value)
    }
 
-   const deleteComment = (commenttoDelete) => {
+   const deleteComment = (commentToDelete: string) => {
       const commentsWithoutDeleteOne = comments.filter(comment => {
          return comment !== commentToDelete;
       })
       
       setComments(commentsWithoutDeleteOne)
    }
-
-   function handleNewCommentInvalid(){
+                                           
+   function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>){
       console.log(event);
       event.target.setCustomValidity('Esse campo é obrigatório, pô!')
    }
@@ -61,7 +70,7 @@ export function Post({author, content, publishedAt}) {
       <article className={styles.post}>
          <header>
             <div className={styles.author}>
-               <Avatar src={author.avatarUrl} />
+               <Avatar src={author.avatarURL} />
                <div className={styles.authorInfo}>
                   <strong>{author.name}</strong>
                   <span>{author.role}</span>
@@ -74,7 +83,7 @@ export function Post({author, content, publishedAt}) {
 
          <div className={styles.content}>
            {content.map(line => {
-               if (line.type === 'paragrath'){
+               if (line.type === 'paragraph'){
                   return <p key={line.content}>{line.content}</p>;
                }
                else if (line.type === 'link'){
@@ -136,4 +145,14 @@ export function Post({author, content, publishedAt}) {
 
    No React nunca estamos alterando uma informação, estamos sempre criando uma 
    nova informação. 
+
+   Typescript e desestruturação
+   - ao utilizar desestruturação no typescript, não é possível tipar cada 
+   elemento do  objeto separadamente. É preciso criar um tipo para todo Objeto 
+   desestruturado, que leve em conta cada tipo de cada chave do objeto.
+
+   Tipo do event
+   - como os eventos das funções Handle são eventos do disparados pela tag form 
+   eles são do tipo FormEvent
+   
 */
