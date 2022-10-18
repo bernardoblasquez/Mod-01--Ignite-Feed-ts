@@ -3,12 +3,20 @@ import { useState } from 'react';
 import { Avatar } from './Avatar';
 import styles from './Comment.module.css';
 
-export function Comment(props){
+
+interface CommentProps{
+   content: string;
+   onDeleteComment: (comment: string) => void;
+   // retorna valor? Se sim botar tipo, caso contrário é void
+   // se recebe parâmetros, esses parâmmetros devem ser tipados
+}
+
+export function Comment({content, onDeleteComment}: CommentProps){
 
    const [likeCount, setLikeCount] = useState(0)
 
    const handleDeleteComments = () => {
-      props.onDeleteComment(props.content)
+      onDeleteComment(content)
    }
 
    function handleLikeComment() {
@@ -31,7 +39,7 @@ export function Comment(props){
                      <Trash size={24} />
                   </button>
                </header>
-               <p>{props.content}</p>
+               <p>{content}</p>
             </div>
             
             <footer>
